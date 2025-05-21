@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
@@ -12,7 +12,7 @@ export interface TodoItem {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, NgFor],
+  imports: [RouterOutlet, FormsModule, NgFor, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -32,4 +32,14 @@ export class AppComponent {
       this.newTask = '';
     }
    }
+
+   toggleCompleted(id: number): void {
+    const todo = this.todoList.find(item => item.id === id);
+    if (todo) {
+      todo.completed = !todo.completed;
+    }}
+
+    deleteTask(id: number): void {
+    this.todoList = this.todoList.filter(item => item.id !== id);
+    }
 }
