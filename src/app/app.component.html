@@ -5,16 +5,17 @@
   </div>
 
   <ul class="task-list">
-    <li *ngFor="let task of todoList; let i = index" [ngClass]="{ completed: task.completed }">
-      <input 
-      type="checkbox"
-       [(ngModel)]="task.completed"
-        [(checked)]="task.completed"
-         (change)="toggleCompleted(i)" />
-      <span [class.competed]="task.completed" >{{ task.title }}</span>
-      <button (click)="deleteTask(task.id)" class="delete-btn">Remove</button>
-    </li>
-  </ul>
+  <li *ngFor="let task of todoList; let i = index">
+    <todo-item 
+      [id]="task.id"
+      [title]="task.title" 
+      [completed]="task.completed"
+      (toggle)="toggleCompleted($event)"
+      (delete)="deleteTask(task.id)">
+    </todo-item>
+  </li>
+</ul>
+
 
 </main>
 <router-outlet />

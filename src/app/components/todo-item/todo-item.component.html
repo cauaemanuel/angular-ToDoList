@@ -1,0 +1,8 @@
+<input 
+  type="checkbox"
+  [checked]="completed"
+  (change)="onToggle()" />
+
+<span [class.completed]="completed">{{ title }}</span>
+
+<button (click)="onDelete()" class="delete-btn">Remove</button>

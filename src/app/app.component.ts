@@ -2,6 +2,7 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 
 export interface TodoItem {
   id: number;
@@ -12,7 +13,7 @@ export interface TodoItem {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, NgFor, NgClass],
+  imports: [RouterOutlet, FormsModule, NgFor, NgClass, TodoItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
